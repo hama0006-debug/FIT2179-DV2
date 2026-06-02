@@ -3,6 +3,7 @@
 <head>
     <title>Malaysia Tourism Recovery</title>
     <link rel="stylesheet" href="style.css">
+
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
@@ -28,6 +29,8 @@
                 Malaysia's tourism industry has gone through major disruption and recovery.
                 This section will show the overall trend in visitor arrivals over time.
             </p>
+
+            <p id="chart_status">Loading test chart...</p>
             <div id="recovery_chart" class="chart"></div>
         </div>
 
@@ -92,7 +95,14 @@
     </div>
 
     <script>
-        vegaEmbed("#recovery_chart", "vega/test_chart.json");
+        vegaEmbed("#recovery_chart", "./vega/test_chart.json", {"actions": false})
+            .then(function() {
+                document.getElementById("chart_status").innerText = "Test chart loaded successfully.";
+            })
+            .catch(function(error) {
+                document.getElementById("chart_status").innerText = "Chart failed to load. Check console.";
+                console.error("Vega chart error:", error);
+            });
     </script>
 </body>
 </html>
