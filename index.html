@@ -88,10 +88,17 @@
             <h2>Where Visitors Came From</h2>
 
             <p class="section-intro">
-                Tourism recovery depends on who returns. Nearby countries and strongly connected
-                markets can recover faster because of short travel distances, border access, and
-                existing travel links with Malaysia.
+                Recovery is also about origin. Nearby countries and strongly connected markets can
+                recover faster because of short travel distances, border access, and existing travel
+                links with Malaysia. This section shows that Malaysia’s tourism rebound was strongly
+                powered by regional visitor markets.
             </p>
+
+            <div class="insight-box">
+                <strong>Key takeaway:</strong> Singapore dominates the arrival story, while Indonesia,
+                Thailand, China, Brunei, and India form the next major layer of visitor markets.
+                This means Malaysia’s recovery is both international and highly regional.
+            </div>
 
             <div class="grid-two">
                 <div class="card">
@@ -107,12 +114,11 @@
                 <div class="card">
                     <h3>Visual 05 · Country recovery patterns</h3>
                     <p>
-                        This planned chart will compare selected countries over time to show that
-                        not every visitor market returned at the same speed.
+                        This line comparison shows whether major source markets returned at the same
+                        pace or followed different recovery paths.
                     </p>
-                    <div class="placeholder">
-                        Coming next: multi-line country trend chart.
-                    </div>
+                    <p id="country_trend_status" class="caption">Loading Figure 3...</p>
+                    <div id="country_trend_chart" class="chart"></div>
                 </div>
             </div>
 
@@ -120,22 +126,21 @@
                 <div class="card">
                     <h3>Visual 06 · Country-by-year heatmap</h3>
                     <p>
-                        A heatmap will make it easier to spot which markets were strong in each year.
+                        The heatmap compresses country and year into one view, making it easier to
+                        see which visitor markets strengthened as recovery progressed.
                     </p>
-                    <div class="placeholder">
-                        Coming next: origin country heatmap.
-                    </div>
+                    <p id="country_heatmap_status" class="caption">Loading Figure 4...</p>
+                    <div id="country_heatmap_chart" class="chart"></div>
                 </div>
 
                 <div class="card">
                     <h3>Visual 07 · Source market share</h3>
                     <p>
-                        This will show whether Malaysia relies heavily on a few source countries or
-                        has a more diverse tourism base.
+                        This donut chart shows how arrival volume is distributed among the largest
+                        source countries, revealing whether the recovery depends on a few dominant markets.
                     </p>
-                    <div class="placeholder">
-                        Coming next: market share chart.
-                    </div>
+                    <p id="country_share_status" class="caption">Loading Figure 5...</p>
+                    <div id="country_share_chart" class="chart"></div>
                 </div>
             </div>
         </div>
@@ -262,6 +267,39 @@
                 document.getElementById("countries_status").innerText =
                     "Figure 2 failed to load. Check console.";
                 console.error("Vega countries chart error:", error);
+            });
+
+        vegaEmbed("#country_trend_chart", "./vega/country_trend_chart.json", {"actions": false})
+            .then(function() {
+                document.getElementById("country_trend_status").innerText =
+                    "Figure 3. Monthly recovery patterns for six major visitor markets.";
+            })
+            .catch(function(error) {
+                document.getElementById("country_trend_status").innerText =
+                    "Figure 3 failed to load. Check console.";
+                console.error("Vega country trend chart error:", error);
+            });
+
+        vegaEmbed("#country_heatmap_chart", "./vega/country_heatmap_chart.json", {"actions": false})
+            .then(function() {
+                document.getElementById("country_heatmap_status").innerText =
+                    "Figure 4. Country-by-year arrivals heatmap for major visitor markets.";
+            })
+            .catch(function(error) {
+                document.getElementById("country_heatmap_status").innerText =
+                    "Figure 4 failed to load. Check console.";
+                console.error("Vega country heatmap error:", error);
+            });
+
+        vegaEmbed("#country_share_chart", "./vega/country_share_chart.json", {"actions": false})
+            .then(function() {
+                document.getElementById("country_share_status").innerText =
+                    "Figure 5. Share of arrivals among the top ten visitor source countries.";
+            })
+            .catch(function(error) {
+                document.getElementById("country_share_status").innerText =
+                    "Figure 5 failed to load. Check console.";
+                console.error("Vega country share chart error:", error);
             });
     </script>
 </body>
