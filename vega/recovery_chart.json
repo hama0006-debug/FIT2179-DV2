@@ -1,0 +1,38 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 350,
+  "title": "Monthly International Arrivals to Malaysia, 2020–2024",
+  "data": {
+    "url": "data/arrivals_soe.csv"
+  },
+  "transform": [
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "arrivals",
+          "as": "total_arrivals"
+        }
+      ],
+      "groupby": ["date"]
+    }
+  ],
+  "mark": {
+    "type": "line",
+    "point": true,
+    "tooltip": true
+  },
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "title": "Month"
+    },
+    "y": {
+      "field": "total_arrivals",
+      "type": "quantitative",
+      "title": "Total arrivals"
+    }
+  }
+}
