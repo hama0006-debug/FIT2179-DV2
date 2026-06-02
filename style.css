@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f3ea;
+    color: #1f2933;
+    margin: 0;
+}
+
+.page {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px;
+}
+
+.hero {
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 42px;
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: 28px;
+    margin-top: 50px;
+}
+
+.section {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+}
+
+.chart {
+    min-height: 350px;
+    margin-top: 20px;
+}
+
+.source {
+    font-size: 13px;
+    color: #666;
+}
