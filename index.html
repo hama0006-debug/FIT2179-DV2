@@ -62,17 +62,19 @@
             <p class="section-intro">
                 Recovery is also about origin. Some countries returned quickly because of proximity,
                 flight connections, border access, and strong tourism links with Malaysia.
-                This section will compare the largest visitor source countries and show how their
-                contribution changed over time.
+                This section compares the largest visitor source countries and sets up the story
+                of which markets powered Malaysia’s tourism comeback.
             </p>
 
             <div class="grid-two">
                 <div class="card">
                     <h3>Top visitor countries</h3>
                     <p>
-                        A ranked chart will show which countries contributed the most arrivals
-                        across the recovery period.
+                        This ranked bar chart shows which countries contributed the most arrivals
+                        across the recovery period. It helps identify the main visitor markets
+                        behind Malaysia’s rebound.
                     </p>
+                    <p id="countries_status" class="caption">Loading Figure 2...</p>
                     <div id="countries_chart" class="chart"></div>
                 </div>
 
@@ -80,6 +82,7 @@
                     <h3>Country recovery patterns</h3>
                     <p>
                         A second chart will compare how selected countries returned at different speeds.
+                        This will help show that tourism recovery was not identical across all origins.
                     </p>
                     <div id="country_trend_chart" class="chart"></div>
                 </div>
@@ -180,6 +183,17 @@
                 document.getElementById("chart_status").innerText =
                     "Figure 1 failed to load. Check console.";
                 console.error("Vega recovery chart error:", error);
+            });
+
+        vegaEmbed("#countries_chart", "./vega/countries_chart.json", {"actions": false})
+            .then(function() {
+                document.getElementById("countries_status").innerText =
+                    "Figure 2. Top 15 visitor source countries by total arrivals.";
+            })
+            .catch(function(error) {
+                document.getElementById("countries_status").innerText =
+                    "Figure 2 failed to load. Check console.";
+                console.error("Vega countries chart error:", error);
             });
     </script>
 </body>
