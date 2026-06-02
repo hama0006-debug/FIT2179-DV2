@@ -13,83 +13,159 @@
     <div class="page">
 
         <div class="hero">
-            <h1>Exploring Malaysia's Tourism Recovery: Where Are Travellers Going and Why?</h1>
-            <p>
-                This visualisation explores how international tourism in Malaysia has recovered,
-                which countries visitors are coming from, and which states and entry points are
-                shaping the new tourism landscape.
+            <div class="unit-tag">FIT2179 Data Visualisation 2</div>
+
+            <h1>Malaysia’s Tourism Comeback: Who Returned, Where They Entered, and Which Places Benefited?</h1>
+
+            <p class="hero-text">
+                Malaysia’s international tourism story did not simply restart after the pandemic.
+                It rebuilt itself through different countries, border gateways, airports, seaports,
+                and states. This visualisation follows that recovery from 2020 to 2024 and shows
+                how the comeback was shaped by geography.
             </p>
-            <p><strong>FIT2179 Data Visualisation 2</strong></p>
-            <p>Created by Hanzala Aman</p>
+
+            <p class="hero-note">
+                A data story using arrivals by country, state of entry, point of entry, gender, and location.
+            </p>
         </div>
 
-        <div class="section">
-            <h2>1. Welcome Back, Travellers</h2>
-            <p>
-                Malaysia's tourism industry has gone through major disruption and recovery.
-                This section shows the overall trend in visitor arrivals from 2020 to 2024.
+        <div class="nav">
+            <a href="#recovery">01 · Recovery</a>
+            <a href="#countries">02 · Visitor Origins</a>
+            <a href="#gateways">03 · Gateways</a>
+            <a href="#states">04 · States & Patterns</a>
+        </div>
+
+        <div class="section" id="recovery">
+            <div class="section-label">Section 01</div>
+            <h2>The Recovery Curve</h2>
+
+            <p class="section-intro">
+                The first view shows the overall return of international arrivals to Malaysia.
+                The line makes the disruption clear: arrivals dropped sharply in 2020, stayed low
+                during the restricted travel period, and then rose again as travel reopened.
             </p>
 
-            <p id="chart_status">Loading recovery chart...</p>
+            <div class="insight-box">
+                <strong>Key idea:</strong> Malaysia’s tourism recovery was not gradual at first.
+                The comeback became visible only after arrivals began rising strongly from 2022 onward.
+            </div>
+
+            <p id="chart_status" class="caption">Loading Figure 1...</p>
             <div id="recovery_chart" class="chart"></div>
         </div>
 
-        <div class="section">
-            <h2>2. Where Are Malaysia's Visitors Coming From?</h2>
-            <p>
-                Different countries contribute differently to Malaysia's tourism recovery.
-                This section will compare the largest visitor source countries.
+        <div class="section" id="countries">
+            <div class="section-label">Section 02</div>
+            <h2>Where Visitors Came From</h2>
+
+            <p class="section-intro">
+                Recovery is also about origin. Some countries returned quickly because of proximity,
+                flight connections, border access, and strong tourism links with Malaysia.
+                This section will compare the largest visitor source countries and show how their
+                contribution changed over time.
             </p>
-            <div id="countries_chart" class="chart"></div>
+
+            <div class="grid-two">
+                <div class="card">
+                    <h3>Top visitor countries</h3>
+                    <p>
+                        A ranked chart will show which countries contributed the most arrivals
+                        across the recovery period.
+                    </p>
+                    <div id="countries_chart" class="chart"></div>
+                </div>
+
+                <div class="card">
+                    <h3>Country recovery patterns</h3>
+                    <p>
+                        A second chart will compare how selected countries returned at different speeds.
+                    </p>
+                    <div id="country_trend_chart" class="chart"></div>
+                </div>
+            </div>
         </div>
 
-        <div class="section">
-            <h2>3. Malaysia's Tourism Gateways</h2>
-            <p>
-                Visitors do not enter Malaysia in the same way. Airports, land checkpoints,
-                and sea ports each play different roles in the recovery story.
+        <div class="section" id="gateways">
+            <div class="section-label">Section 03</div>
+            <h2>Malaysia’s Tourism Gateways</h2>
+
+            <p class="section-intro">
+                Tourists enter Malaysia through many different gateways. Airports, land checkpoints,
+                and seaports do not play the same role. Mapping these gateways helps show how
+                international arrivals are distributed across the country.
             </p>
+
+            <div class="insight-box">
+                <strong>Map focus:</strong> This section will use the point-of-entry dataset with
+                latitude and longitude to create the required geographic map for the assignment.
+            </div>
+
             <div id="gateway_map" class="chart"></div>
+
+            <div class="grid-two">
+                <div class="card">
+                    <h3>Air, land, and sea</h3>
+                    <p>
+                        A comparison chart will show whether arrivals are concentrated more through
+                        airports, land borders, or seaports.
+                    </p>
+                    <div id="entry_type_chart" class="chart"></div>
+                </div>
+
+                <div class="card">
+                    <h3>Busiest entry points</h3>
+                    <p>
+                        A ranked chart will identify the entry points that carry the largest share
+                        of international arrivals.
+                    </p>
+                    <div id="top_entry_chart" class="chart"></div>
+                </div>
+            </div>
         </div>
 
-        <div class="section">
-            <h2>4. Which States Benefit Most?</h2>
-            <p>
-                Tourism recovery is not equal across Malaysia. Some states receive much higher
-                visitor traffic because of airports, borders, and popular destinations.
-            </p>
-            <div id="state_chart" class="chart"></div>
-        </div>
+        <div class="section" id="states">
+            <div class="section-label">Section 04</div>
+            <h2>Which States Benefited Most?</h2>
 
-        <div class="section">
-            <h2>5. Tourism Recovery Is Uneven</h2>
-            <p>
-                Recovery patterns differ by state and entry point, showing that Malaysia's
-                tourism comeback is not happening at the same speed everywhere.
+            <p class="section-intro">
+                The recovery was not evenly spread across Malaysia. Some states received far more
+                international arrivals because of major airports, land borders, island destinations,
+                and tourism infrastructure.
             </p>
-            <div id="recovery_heatmap" class="chart"></div>
-        </div>
 
-        <div class="section">
-            <h2>6. Who Is Travelling?</h2>
-            <p>
-                The dataset also allows us to compare male and female arrivals across countries,
-                states, and time.
-            </p>
-            <div id="gender_chart" class="chart"></div>
-        </div>
+            <div class="grid-two">
+                <div class="card">
+                    <h3>State ranking</h3>
+                    <p>
+                        A horizontal bar chart will compare arrivals by Malaysian state.
+                    </p>
+                    <div id="state_chart" class="chart"></div>
+                </div>
 
-        <div class="section">
-            <h2>7. Malaysia's New Tourism Landscape</h2>
-            <p>
-                The final section will summarise the key findings and show how Malaysia's tourism
-                recovery is shaped by geography, entry points, and visitor origin.
-            </p>
+                <div class="card">
+                    <h3>Recovery heatmap</h3>
+                    <p>
+                        A heatmap will show how recovery changed by state and year.
+                    </p>
+                    <div id="recovery_heatmap" class="chart"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Who is travelling?</h3>
+                <p>
+                    The final comparison uses male and female arrival counts to show whether
+                    visitor composition differs across the recovery period.
+                </p>
+                <div id="gender_chart" class="chart"></div>
+            </div>
         </div>
 
         <p class="source">
-            Data sources: Malaysia arrivals datasets and point-of-entry dataset.
-            Use of generative AI was acknowledged in accordance with the assignment brief.
+            Data sources: Malaysia arrivals by state of entry, foreign arrivals by point of entry,
+            and point-of-entry location dataset. Visualisations created using Vega-Lite.
+            Generative AI was used for coding support, writing refinement, and design assistance.
         </p>
 
     </div>
@@ -97,10 +173,12 @@
     <script>
         vegaEmbed("#recovery_chart", "./vega/recovery_chart.json", {"actions": false})
             .then(function() {
-                document.getElementById("chart_status").innerText = "Recovery chart loaded successfully.";
+                document.getElementById("chart_status").innerText =
+                    "Figure 1. Monthly international visitor arrivals to Malaysia, 2020–2024.";
             })
             .catch(function(error) {
-                document.getElementById("chart_status").innerText = "Recovery chart failed to load. Check console.";
+                document.getElementById("chart_status").innerText =
+                    "Figure 1 failed to load. Check console.";
                 console.error("Vega recovery chart error:", error);
             });
     </script>
