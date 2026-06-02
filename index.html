@@ -3,6 +3,10 @@
 <head>
     <title>Malaysia Tourism Recovery</title>
     <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 
 <body>
@@ -87,5 +91,9 @@
         </p>
 
     </div>
+
+    <script>
+        vegaEmbed("#recovery_chart", "vega/test_chart.json");
+    </script>
 </body>
 </html>
