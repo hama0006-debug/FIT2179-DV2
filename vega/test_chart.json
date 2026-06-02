@@ -1,0 +1,17 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Test chart",
+  "data": {
+    "values": [
+      {"year": "2020", "value": 100},
+      {"year": "2021", "value": 50},
+      {"year": "2022", "value": 150},
+      {"year": "2023", "value": 300}
+    ]
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "year", "type": "ordinal"},
+    "y": {"field": "value", "type": "quantitative"}
+  }
+}
