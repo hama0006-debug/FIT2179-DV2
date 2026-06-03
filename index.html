@@ -75,14 +75,11 @@
 
             <div id="recovery_chart" class="chart viz-wide"></div>
 
-            <p id="chart_status" class="figure-caption">
-                Figure 1 loading...
-            </p>
+            <p id="chart_status" class="figure-caption">Figure 1 loading...</p>
 
-            <p class="caption">
-                This line chart uses monthly totals from the state-of-entry arrivals dataset.
-                The line idiom is suitable because the main task is to show change over time and
-                reveal the shape of the recovery.
+            <p class="chart-explain">
+                Chart choice: a line chart is used because the main task is to show change over time.
+                It reveals the collapse, the low-travel period, and the later recovery in one continuous view.
             </p>
         </div>
 
@@ -93,96 +90,90 @@
             <p class="section-intro">
                 Recovery is also about origin. Nearby countries and strongly connected markets can
                 recover faster because of short travel distances, border access, and existing travel
-                links with Malaysia. This section shows that Malaysia’s tourism rebound was strongly
-                powered by regional visitor markets.
+                links with Malaysia. This section shows that Malaysia’s rebound was strongly powered
+                by regional visitor markets.
             </p>
 
             <div class="insight-box">
                 <strong>Key takeaway:</strong> Singapore dominates the arrival story, while Indonesia,
                 Thailand, China, Brunei, and India form the next major layer of visitor markets.
-                This means Malaysia’s recovery is both international and highly regional.
+                The recovery is international, but it is also heavily shaped by Malaysia’s closest
+                and most connected neighbours.
             </div>
 
             <div class="grid-two">
                 <div class="card">
-                    <h3>Visual 04 · Top visitor countries</h3>
+                    <h3>Top visitor countries</h3>
 
                     <div class="visual-note">
-                        This ranked bar chart is used for comparison. It quickly shows which source
-                        countries contributed the largest total arrivals during the recovery period.
+                        Singapore is the clear leader in total arrivals. The gap between Singapore
+                        and the next countries shows how strongly Malaysia’s recovery depends on
+                        nearby regional movement.
                     </div>
 
                     <div id="countries_chart" class="chart"></div>
 
-                    <p id="countries_status" class="figure-caption">
-                        Figure 2 loading...
-                    </p>
+                    <p id="countries_status" class="figure-caption">Figure 2 loading...</p>
 
-                    <p class="caption">
-                        The long first bar shows how strongly Singapore shapes Malaysia’s overall
-                        visitor numbers compared with other source markets.
+                    <p class="chart-explain">
+                        Chart choice: a ranked horizontal bar chart supports quick comparison across
+                        countries and makes the largest contributors easy to identify.
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>Visual 05 · Country recovery patterns</h3>
+                    <h3>Country recovery patterns</h3>
 
                     <div class="visual-note">
-                        This multi-line chart compares selected source countries over time. It shows
-                        that visitor markets did not recover at the same speed.
+                        The source markets did not return evenly. Singapore rises sharply after 2022,
+                        while other countries recover more gradually and remain much smaller in scale.
                     </div>
 
                     <div id="country_trend_chart" class="chart"></div>
 
-                    <p id="country_trend_status" class="figure-caption">
-                        Figure 3 loading...
-                    </p>
+                    <p id="country_trend_status" class="figure-caption">Figure 3 loading...</p>
 
-                    <p class="caption">
-                        Singapore rebounds much more sharply, while other countries show smaller but
-                        still visible recovery patterns after travel restrictions eased.
+                    <p class="chart-explain">
+                        Chart choice: a multi-line chart compares several countries across the same
+                        timeline, showing both trend direction and differences in recovery speed.
                     </p>
                 </div>
             </div>
 
             <div class="grid-two">
                 <div class="card">
-                    <h3>Visual 06 · Country-by-year heatmap</h3>
+                    <h3>Country-by-year heatmap</h3>
 
                     <div class="visual-note">
-                        This heatmap compresses country and year into one view. Darker cells indicate
-                        stronger visitor volume, making recovery patterns easier to scan.
+                        The heatmap makes the recovery easier to scan year by year. Darker blocks
+                        show stronger arrival volume, especially after international movement resumed.
                     </div>
 
                     <div id="country_heatmap_chart" class="chart"></div>
 
-                    <p id="country_heatmap_status" class="figure-caption">
-                        Figure 4 loading...
-                    </p>
+                    <p id="country_heatmap_status" class="figure-caption">Figure 4 loading...</p>
 
-                    <p class="caption">
-                        The heatmap makes the post-2022 return easier to compare across countries,
-                        especially for major regional markets.
+                    <p class="chart-explain">
+                        Chart choice: a heatmap is used because it compresses two categories,
+                        country and year, into a compact comparison using colour intensity.
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>Visual 07 · Source market share</h3>
+                    <h3>Source market share</h3>
 
                     <div class="visual-note">
-                        This donut chart shows concentration. It asks whether arrivals are spread
-                        across many countries or dominated by a few major markets.
+                        The donut chart shows concentration. A large Singapore slice confirms that
+                        Malaysia’s visitor recovery is not evenly spread across all source countries.
                     </div>
 
                     <div id="country_share_chart" class="chart"></div>
 
-                    <p id="country_share_status" class="figure-caption">
-                        Figure 5 loading...
-                    </p>
+                    <p id="country_share_status" class="figure-caption">Figure 5 loading...</p>
 
-                    <p class="caption">
-                        The large slice reinforces the same story: Malaysia’s visitor recovery is
-                        strongly shaped by its closest and most connected markets.
+                    <p class="chart-explain">
+                        Chart choice: a donut chart is used here as a compact part-to-whole view
+                        for the largest source markets.
                     </p>
                 </div>
             </div>
@@ -199,12 +190,12 @@
             </p>
 
             <div class="insight-box">
-                <strong>Map focus:</strong> This section will use latitude and longitude from the
+                <strong>Map focus:</strong> this section uses latitude and longitude from the
                 point-of-entry dataset to create the required geographic map.
             </div>
 
             <div class="card">
-                <h3>Visual 08 · Point-of-entry map</h3>
+                <h3>Point-of-entry map</h3>
 
                 <div class="visual-note">
                     The map will show Malaysia’s air, land, and sea gateways using point locations.
@@ -219,7 +210,7 @@
 
             <div class="grid-two">
                 <div class="card">
-                    <h3>Visual 09 · Air, land, and sea</h3>
+                    <h3>Air, land, and sea</h3>
 
                     <div class="visual-note">
                         This comparison will show how arrival routes differ by entry type.
@@ -231,7 +222,7 @@
                 </div>
 
                 <div class="card">
-                    <h3>Visual 10 · Busiest entry points</h3>
+                    <h3>Busiest entry points</h3>
 
                     <div class="visual-note">
                         A ranked chart will reveal which gateways handled the most international arrivals.
@@ -256,7 +247,7 @@
 
             <div class="grid-two">
                 <div class="card">
-                    <h3>Visual 11 · State ranking</h3>
+                    <h3>State ranking</h3>
 
                     <div class="visual-note">
                         A horizontal bar chart will compare total arrivals by Malaysian state.
@@ -268,7 +259,7 @@
                 </div>
 
                 <div class="card">
-                    <h3>Visual 12 · State recovery heatmap</h3>
+                    <h3>State recovery heatmap</h3>
 
                     <div class="visual-note">
                         A heatmap will show how the recovery changed by state and year.
@@ -281,7 +272,7 @@
             </div>
 
             <div class="card">
-                <h3>Visual 13 · Who is travelling?</h3>
+                <h3>Who is travelling?</h3>
 
                 <div class="visual-note">
                     The final comparison will use male and female arrival counts to show how
