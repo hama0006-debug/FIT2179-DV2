@@ -1,45 +1,25 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 570,
-  "height": 390,
+  "width": 850,
+  "height": 380,
   "title": "Recovery Patterns of Major Visitor Markets",
-  "data": {
-    "url": "data/arrivals_soe.csv"
-  },
+  "data": {"url": "data/arrivals_soe.csv"},
   "transform": [
+    {"filter": "indexof(['SGP','IDN','THA','CHN','BRN','IND'], datum.country) >= 0"},
     {
-      "filter": "indexof(['SGP','IDN','THA','CHN','BRN','IND'], datum.country) >= 0"
-    },
-    {
-      "aggregate": [
-        {"op": "sum", "field": "arrivals", "as": "monthly_arrivals"}
-      ],
+      "aggregate": [{"op": "sum", "field": "arrivals", "as": "monthly_arrivals"}],
       "groupby": ["date", "country"]
     }
   ],
-  "mark": {
-    "type": "line",
-    "point": false,
-    "tooltip": true
-  },
+  "mark": {"type": "line", "strokeWidth": 3, "tooltip": true},
   "encoding": {
-    "x": {
-      "field": "date",
-      "type": "temporal",
-      "title": "Month"
-    },
-    "y": {
-      "field": "monthly_arrivals",
-      "type": "quantitative",
-      "title": "Monthly arrivals"
-    },
+    "x": {"field": "date", "type": "temporal", "title": "Month"},
+    "y": {"field": "monthly_arrivals", "type": "quantitative", "title": "Monthly arrivals"},
     "color": {
       "field": "country",
       "type": "nominal",
       "title": "Country",
-      "scale": {
-        "range": ["#1f6f5f", "#f6c85f", "#e07a5f", "#3d5a80", "#81b29a", "#bc6c25"]
-      }
+      "scale": {"range": ["#123c3c", "#e07a5f", "#2f8f83", "#3d5a80", "#f6c85f", "#bc6c25"]}
     },
     "tooltip": [
       {"field": "country", "type": "nominal", "title": "Country"},
