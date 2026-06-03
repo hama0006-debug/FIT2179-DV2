@@ -1,0 +1,58 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 390,
+  "height": 320,
+  "title": "Arrivals by Entry Type",
+  "data": {"url": "data/foreign_arrivals.csv"},
+  "transform": [
+    {
+      "aggregate": [
+        {"op": "sum", "field": "arrivals", "as": "total_arrivals"}
+      ],
+      "groupby": ["poe"]
+    },
+    {
+      "lookup": "poe",
+      "from": {
+        "data": {"url": "data/poe.csv"},
+        "key": "poe",
+        "fields": ["type"]
+      }
+    },
+    {
+      "aggregate": [
+        {"op": "sum", "field": "total_arrivals", "as": "arrivals_by_type"}
+      ],
+      "groupby": ["type"]
+    }
+  ],
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 5,
+    "tooltip": true
+  },
+  "encoding": {
+    "x": {
+      "field": "type",
+      "type": "nominal",
+      "title": "Entry type"
+    },
+    "y": {
+      "field": "arrivals_by_type",
+      "type": "quantitative",
+      "title": "Total arrivals"
+    },
+    "color": {
+      "field": "type",
+      "type": "nominal",
+      "legend": null,
+      "scale": {
+        "range": ["#2f8f83", "#f6c85f", "#e07a5f"]
+      }
+    },
+    "tooltip": [
+      {"field": "type", "type": "nominal", "title": "Entry type"},
+      {"field": "arrivals_by_type", "type": "quantitative", "title": "Total arrivals", "format": ","}
+    ]
+  }
+}
