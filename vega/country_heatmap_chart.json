@@ -1,36 +1,20 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 570,
-  "height": 390,
+  "width": 850,
+  "height": 360,
   "title": "Visitor Strength by Country and Year",
-  "data": {
-    "url": "data/arrivals_soe.csv"
-  },
+  "data": {"url": "data/arrivals_soe.csv"},
   "transform": [
+    {"filter": "indexof(['SGP','IDN','THA','CHN','BRN','IND','PHL','BGD','KOR','AUS'], datum.country) >= 0"},
+    {"calculate": "substring(datum.date, 0, 4)", "as": "year"},
     {
-      "filter": "indexof(['SGP','IDN','THA','CHN','BRN','IND','PHL','BGD','KOR','AUS'], datum.country) >= 0"
-    },
-    {
-      "calculate": "substring(datum.date, 0, 4)",
-      "as": "year"
-    },
-    {
-      "aggregate": [
-        {"op": "sum", "field": "arrivals", "as": "yearly_arrivals"}
-      ],
+      "aggregate": [{"op": "sum", "field": "arrivals", "as": "yearly_arrivals"}],
       "groupby": ["country", "year"]
     }
   ],
-  "mark": {
-    "type": "rect",
-    "tooltip": true
-  },
+  "mark": {"type": "rect", "tooltip": true},
   "encoding": {
-    "x": {
-      "field": "year",
-      "type": "ordinal",
-      "title": "Year"
-    },
+    "x": {"field": "year", "type": "ordinal", "title": "Year"},
     "y": {
       "field": "country",
       "type": "nominal",
@@ -41,9 +25,7 @@
       "field": "yearly_arrivals",
       "type": "quantitative",
       "title": "Arrivals",
-      "scale": {
-        "range": ["#f7f3ea", "#d7eadf", "#8fc8b6", "#2f8f83", "#123c3c"]
-      }
+      "scale": {"range": ["#f7f3ea", "#d7eadf", "#8fc8b6", "#2f8f83", "#123c3c"]}
     },
     "tooltip": [
       {"field": "country", "type": "nominal", "title": "Country"},
