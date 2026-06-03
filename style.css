@@ -116,18 +116,21 @@ h2 {
     color: #173f3c;
 }
 
-.grid-two {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-    margin-top: 28px;
-}
-
 .grid-one {
     display: grid;
     grid-template-columns: 1fr;
     gap: 28px;
     margin-top: 28px;
+    width: 100%;
+}
+
+.grid-two {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    margin-top: 28px;
+    width: 100%;
+    align-items: stretch;
 }
 
 .grid-three {
@@ -143,6 +146,11 @@ h2 {
     padding: 28px;
     border-radius: 24px;
     box-shadow: 0 8px 22px rgba(0,0,0,0.035);
+    width: 100%;
+}
+
+.grid-two .card {
+    min-height: 650px;
 }
 
 .card h3 {
@@ -176,6 +184,18 @@ h2 {
 
 .viz-wide {
     min-height: 520px;
+}
+
+#countries .grid-one .chart {
+    min-height: 430px;
+}
+
+#countries .grid-two .chart {
+    min-height: 390px;
+}
+
+#countries .card {
+    max-width: 100%;
 }
 
 .figure-caption {
@@ -247,8 +267,13 @@ h2 {
     }
 
     .nav,
+    .grid-one,
     .grid-two,
     .grid-three {
         grid-template-columns: 1fr;
+    }
+
+    .grid-two .card {
+        min-height: auto;
     }
 }
