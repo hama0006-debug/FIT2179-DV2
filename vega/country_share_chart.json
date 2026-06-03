@@ -1,16 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 570,
-  "height": 390,
+  "width": 850,
+  "height": 380,
   "title": "Share of Arrivals Among Top Source Countries",
-  "data": {
-    "url": "data/arrivals_soe.csv"
-  },
+  "data": {"url": "data/arrivals_soe.csv"},
   "transform": [
     {
-      "aggregate": [
-        {"op": "sum", "field": "arrivals", "as": "total_arrivals"}
-      ],
+      "aggregate": [{"op": "sum", "field": "arrivals", "as": "total_arrivals"}],
       "groupby": ["country"]
     },
     {
@@ -19,35 +15,14 @@
     },
     {"filter": "datum.rank <= 10"}
   ],
-  "mark": {
-    "type": "arc",
-    "innerRadius": 70,
-    "outerRadius": 145,
-    "tooltip": true
-  },
+  "mark": {"type": "arc", "innerRadius": 80, "outerRadius": 165, "tooltip": true},
   "encoding": {
-    "theta": {
-      "field": "total_arrivals",
-      "type": "quantitative"
-    },
+    "theta": {"field": "total_arrivals", "type": "quantitative"},
     "color": {
       "field": "country",
       "type": "nominal",
       "title": "Country",
-      "scale": {
-        "range": [
-          "#1f6f5f",
-          "#2f8f83",
-          "#f6c85f",
-          "#e07a5f",
-          "#3d5a80",
-          "#81b29a",
-          "#bc6c25",
-          "#6d597a",
-          "#457b9d",
-          "#a7c957"
-        ]
-      }
+      "scale": {"range": ["#123c3c", "#2f8f83", "#f6c85f", "#e07a5f", "#3d5a80", "#81b29a", "#bc6c25", "#6d597a", "#457b9d", "#a7c957"]}
     },
     "tooltip": [
       {"field": "country", "type": "nominal", "title": "Country"},
