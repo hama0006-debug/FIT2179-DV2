@@ -169,36 +169,58 @@
                 <h2>Malaysia’s Tourism Gateways</h2>
 
                 <p class="section-intro">
-                    Arrivals do not enter Malaysia evenly. Some tourists arrive through major airports, while others enter
-                    through land checkpoints and seaports. Mapping these entry points turns the recovery story into a spatial pattern.
+                    Recovery is not only about who returned, but also how they entered. Malaysia’s arrivals flow through
+                    airports, land checkpoints, and seaports, creating a gateway network that spreads tourism across different
+                    parts of the country.
                 </p>
             </div>
 
-            <div class="card">
-                <div class="insight-box">
-                    <strong>Map focus:</strong> this section uses latitude and longitude from the point-of-entry dataset
-                    to create the required geographic map.
-                </div>
+            <div class="insight-box">
+                <strong>Section insight:</strong> Malaysia’s tourism gateways are spatially uneven. Some entry points handle
+                much larger visitor flows, while others play smaller but important regional roles.
+            </div>
 
-                <h3>Point-of-entry map</h3>
-                <div class="visual-note">
-                    The map will show Malaysia’s air, land, and sea gateways using point locations.
+            <div class="grid-one">
+                <div class="card">
+                    <h3>Point-of-entry map</h3>
+                    <div class="visual-note">
+                        This map plots Malaysia’s international entry points using latitude and longitude. Larger circles represent
+                        busier gateways, while colour separates air, land, and sea entry types.
+                    </div>
+                    <div id="gateway_map" class="chart viz-wide"></div>
+                    <p id="gateway_map_status" class="figure-caption">Figure 6 loading...</p>
+                    <p class="chart-explain">
+                        A geographic map is used because the point-of-entry dataset contains coordinates. This makes it possible
+                        to show where arrivals physically enter Malaysia.
+                    </p>
                 </div>
-                <div id="gateway_map" class="chart"></div>
-                <div class="placeholder">Coming next: required geographic map using point-of-entry coordinates.</div>
             </div>
 
             <div class="grid-two">
                 <div class="card">
                     <h3>Air, land, and sea</h3>
-                    <div class="visual-note">This comparison will show how arrival routes differ by entry type.</div>
-                    <div class="placeholder">Coming next: entry type comparison.</div>
+                    <div class="visual-note">
+                        This chart compares entry types to show whether Malaysia’s international visitor recovery is mainly linked
+                        to airports, land borders, or sea ports.
+                    </div>
+                    <div id="entry_type_chart" class="chart"></div>
+                    <p id="entry_type_status" class="figure-caption">Figure 7 loading...</p>
+                    <p class="chart-explain">
+                        A bar chart is used because it gives a direct comparison between the three entry categories.
+                    </p>
                 </div>
 
                 <div class="card">
                     <h3>Busiest entry points</h3>
-                    <div class="visual-note">A ranked chart will reveal which gateways handled the most international arrivals.</div>
-                    <div class="placeholder">Coming next: top entry point ranking.</div>
+                    <div class="visual-note">
+                        The busiest gateways reveal where arrival pressure is concentrated. This helps explain which physical
+                        entry points play the largest role in Malaysia’s tourism recovery.
+                    </div>
+                    <div id="top_entry_chart" class="chart"></div>
+                    <p id="top_entry_status" class="figure-caption">Figure 8 loading...</p>
+                    <p class="chart-explain">
+                        A ranked horizontal bar chart is used to show the highest-volume entry points clearly.
+                    </p>
                 </div>
             </div>
         </div>
@@ -278,6 +300,24 @@
             .then(function() {
                 document.getElementById("country_heatmap_status").innerText =
                     "Figure 5. Country-by-year arrivals heatmap for major visitor markets.";
+            });
+
+        vegaEmbed("#gateway_map", "./vega/gateway_map.json", embedOptions)
+            .then(function() {
+                document.getElementById("gateway_map_status").innerText =
+                    "Figure 6. Map of Malaysia’s international tourism entry points by type and arrival volume.";
+            });
+
+        vegaEmbed("#entry_type_chart", "./vega/entry_type_chart.json", embedOptions)
+            .then(function() {
+                document.getElementById("entry_type_status").innerText =
+                    "Figure 7. Total international arrivals by entry type.";
+            });
+
+        vegaEmbed("#top_entry_chart", "./vega/top_entry_chart.json", embedOptions)
+            .then(function() {
+                document.getElementById("top_entry_status").innerText =
+                    "Figure 8. Top 10 busiest international tourism entry points.";
             });
     </script>
 </body>
