@@ -11,39 +11,45 @@
       "filter": "indexof(['SGP','IDN','THA','CHN','BRN','IND','PHL','BGD','KOR','AUS'], datum.country) >= 0"
     },
     {
+      "timeUnit": "year",
+      "field": "date",
+      "as": "year"
+    },
+    {
       "aggregate": [
         {"op": "sum", "field": "arrivals", "as": "yearly_arrivals"}
       ],
-      "groupby": ["country", "date"]
+      "groupby": ["country", "year"]
     }
   ],
   "mark": {
     "type": "rect",
-    "tooltip": true
+    "tooltip": true,
+    "cornerRadius": 3
   },
   "encoding": {
     "x": {
-      "field": "date",
-      "type": "temporal",
-      "timeUnit": "year",
+      "field": "year",
+      "type": "ordinal",
       "title": "Year"
     },
     "y": {
       "field": "country",
       "type": "nominal",
-      "title": "Country"
+      "title": null,
+      "sort": ["SGP", "IDN", "THA", "CHN", "BRN", "IND", "PHL", "BGD", "KOR", "AUS"]
     },
     "color": {
       "field": "yearly_arrivals",
       "type": "quantitative",
       "title": "Arrivals",
       "scale": {
-        "scheme": "tealblues"
+        "range": ["#f7f3ea", "#d7eadf", "#8fc8b6", "#2f8f83", "#123c3c"]
       }
     },
     "tooltip": [
       {"field": "country", "type": "nominal", "title": "Country"},
-      {"field": "date", "type": "temporal", "timeUnit": "year", "title": "Year"},
+      {"field": "year", "type": "ordinal", "title": "Year"},
       {"field": "yearly_arrivals", "type": "quantitative", "title": "Arrivals", "format": ","}
     ]
   }
