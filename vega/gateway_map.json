@@ -20,7 +20,7 @@
   "layer": [
     {
       "data": {
-        "url": "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json",
+        "url": "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json",
         "format": {
           "type": "topojson",
           "feature": "countries"
@@ -28,29 +28,27 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#f2eee6",
+        "fill": "#e5f1ed",
         "stroke": "#d8d0c4",
         "strokeWidth": 0.6
       }
     },
     {
       "data": {
-        "url": "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json",
+        "url": "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json",
         "format": {
           "type": "topojson",
           "feature": "countries"
         }
       },
       "transform": [
-        {
-          "filter": "datum.id == 458"
-        }
+        {"filter": "datum.id == 458"}
       ],
       "mark": {
         "type": "geoshape",
-        "fill": "#e5f1ed",
-        "stroke": "#1f6f5f",
-        "strokeWidth": 1.8
+        "fill": "#dceee8",
+        "stroke": "#123c3c",
+        "strokeWidth": 2
       }
     },
     {
@@ -60,51 +58,35 @@
       "transform": [
         {
           "aggregate": [
-            {
-              "op": "sum",
-              "field": "arrivals",
-              "as": "total_arrivals"
-            }
+            {"op": "sum", "field": "arrivals", "as": "total_arrivals"}
           ],
           "groupby": ["poe"]
         },
         {
           "lookup": "poe",
           "from": {
-            "data": {
-              "url": "data/poe.csv"
-            },
+            "data": {"url": "data/poe.csv"},
             "key": "poe",
             "fields": ["lat", "long", "type", "state"]
           }
         },
-        {
-          "filter": "isValid(datum.lat) && isValid(datum.long)"
-        }
+        {"filter": "isValid(datum.lat) && isValid(datum.long)"}
       ],
       "mark": {
         "type": "circle",
-        "opacity": 0.78,
+        "opacity": 0.8,
         "stroke": "#ffffff",
         "strokeWidth": 1.8,
         "tooltip": true
       },
       "encoding": {
-        "longitude": {
-          "field": "long",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "lat",
-          "type": "quantitative"
-        },
+        "longitude": {"field": "long", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
         "size": {
           "field": "total_arrivals",
           "type": "quantitative",
           "title": "Arrival volume",
-          "scale": {
-            "range": [35, 1150]
-          }
+          "scale": {"range": [35, 1150]}
         },
         "color": {
           "field": "type",
@@ -116,35 +98,16 @@
           }
         },
         "tooltip": [
-          {
-            "field": "poe",
-            "type": "nominal",
-            "title": "Point of entry"
-          },
-          {
-            "field": "state",
-            "type": "nominal",
-            "title": "State"
-          },
-          {
-            "field": "type",
-            "type": "nominal",
-            "title": "Gateway type"
-          },
-          {
-            "field": "total_arrivals",
-            "type": "quantitative",
-            "title": "Total arrivals",
-            "format": ","
-          }
+          {"field": "poe", "type": "nominal", "title": "Point of entry"},
+          {"field": "state", "type": "nominal", "title": "State"},
+          {"field": "type", "type": "nominal", "title": "Gateway type"},
+          {"field": "total_arrivals", "type": "quantitative", "title": "Total arrivals", "format": ","}
         ]
       }
     }
   ],
   "config": {
-    "view": {
-      "stroke": null
-    },
+    "view": {"stroke": null},
     "legend": {
       "orient": "right",
       "labelColor": "#24323d",
