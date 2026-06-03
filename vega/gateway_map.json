@@ -1,21 +1,21 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "background": "#ffffff",
-  "width": 900,
-  "height": 520,
+  "width": 1050,
+  "height": 620,
   "title": {
     "text": "Malaysia’s International Tourism Gateways",
     "subtitle": "Entry points sized by total arrivals and coloured by gateway type",
-    "fontSize": 20,
-    "subtitleFontSize": 13,
+    "fontSize": 22,
+    "subtitleFontSize": 14,
     "anchor": "middle",
     "color": "#123c3c",
     "subtitleColor": "#52616b"
   },
   "projection": {
     "type": "mercator",
-    "center": [109.5, 4.3],
-    "scale": 1900
+    "center": [109.3, 4.2],
+    "scale": 2300
   },
   "layer": [
     {
@@ -27,15 +27,13 @@
         }
       },
       "transform": [
-        {
-          "filter": "datum.id == 458"
-        }
+        {"filter": "datum.id == 458"}
       ],
       "mark": {
         "type": "geoshape",
-        "fill": "#e8f3ef",
-        "stroke": "#2f6f64",
-        "strokeWidth": 1.4
+        "fill": "#e5f1ed",
+        "stroke": "#1f6f5f",
+        "strokeWidth": 1.6
       }
     },
     {
@@ -45,51 +43,35 @@
       "transform": [
         {
           "aggregate": [
-            {
-              "op": "sum",
-              "field": "arrivals",
-              "as": "total_arrivals"
-            }
+            {"op": "sum", "field": "arrivals", "as": "total_arrivals"}
           ],
           "groupby": ["poe"]
         },
         {
           "lookup": "poe",
           "from": {
-            "data": {
-              "url": "data/poe.csv"
-            },
+            "data": {"url": "data/poe.csv"},
             "key": "poe",
             "fields": ["lat", "long", "type", "state"]
           }
         },
-        {
-          "filter": "isValid(datum.lat) && isValid(datum.long)"
-        }
+        {"filter": "isValid(datum.lat) && isValid(datum.long)"}
       ],
       "mark": {
         "type": "circle",
-        "opacity": 0.82,
+        "opacity": 0.72,
         "stroke": "#ffffff",
-        "strokeWidth": 1.6,
+        "strokeWidth": 1.8,
         "tooltip": true
       },
       "encoding": {
-        "longitude": {
-          "field": "long",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "lat",
-          "type": "quantitative"
-        },
+        "longitude": {"field": "long", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
         "size": {
           "field": "total_arrivals",
           "type": "quantitative",
           "title": "Arrival volume",
-          "scale": {
-            "range": [45, 2400]
-          },
+          "scale": {"range": [35, 1300]},
           "legend": {
             "orient": "right",
             "titleFontSize": 13,
@@ -112,35 +94,16 @@
           }
         },
         "tooltip": [
-          {
-            "field": "poe",
-            "type": "nominal",
-            "title": "Point of entry"
-          },
-          {
-            "field": "state",
-            "type": "nominal",
-            "title": "State"
-          },
-          {
-            "field": "type",
-            "type": "nominal",
-            "title": "Gateway type"
-          },
-          {
-            "field": "total_arrivals",
-            "type": "quantitative",
-            "title": "Total arrivals",
-            "format": ","
-          }
+          {"field": "poe", "type": "nominal", "title": "Point of entry"},
+          {"field": "state", "type": "nominal", "title": "State"},
+          {"field": "type", "type": "nominal", "title": "Gateway type"},
+          {"field": "total_arrivals", "type": "quantitative", "title": "Total arrivals", "format": ","}
         ]
       }
     }
   ],
   "config": {
-    "view": {
-      "stroke": null
-    },
+    "view": {"stroke": null},
     "legend": {
       "labelColor": "#24323d",
       "titleColor": "#123c3c"
