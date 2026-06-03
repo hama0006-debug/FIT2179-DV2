@@ -15,15 +15,15 @@ body {
 }
 
 .page {
-    max-width: 1340px;
+    max-width: 1420px;
     margin: auto;
-    padding: 32px 24px;
+    padding: 32px 26px;
 }
 
 .hero {
-    background: radial-gradient(circle at top right, #36a18f, #123c3c 62%);
+    background: radial-gradient(circle at top right, #3da58f, #123c3c 62%);
     color: white;
-    padding: 70px 58px;
+    padding: 68px 62px;
     border-radius: 30px;
     margin-bottom: 24px;
     box-shadow: 0 18px 40px rgba(0,0,0,0.16);
@@ -43,14 +43,14 @@ body {
 }
 
 h1 {
-    font-size: 54px;
-    line-height: 1.04;
-    max-width: 980px;
+    font-size: 50px;
+    line-height: 1.06;
+    max-width: 1050px;
     margin: 22px 0 18px;
 }
 
 .hero-text {
-    max-width: 880px;
+    max-width: 940px;
     font-size: 18px;
     color: #edf7f4;
 }
@@ -102,7 +102,7 @@ h2 {
 }
 
 .section-intro {
-    max-width: 980px;
+    max-width: 1050px;
     color: #46515c;
     font-size: 17px;
 }
@@ -119,8 +119,8 @@ h2 {
 .grid-two {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    margin-top: 30px;
+    gap: 34px;
+    margin-top: 32px;
     align-items: stretch;
 }
 
@@ -136,9 +136,10 @@ h2 {
     border: 1px solid #e1ebe7;
     padding: 30px;
     border-radius: 24px;
-    min-height: 700px;
+    min-height: 680px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     box-shadow: 0 8px 22px rgba(0,0,0,0.035);
 }
 
@@ -154,10 +155,10 @@ h2 {
     border-left: 5px solid #f6c85f;
     padding: 15px 17px;
     border-radius: 12px;
-    margin: 0 0 22px;
+    margin: 0 0 20px;
     color: #34434d;
     font-size: 15px;
-    min-height: 118px;
+    min-height: 112px;
 }
 
 .chart {
@@ -166,11 +167,15 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 360px;
+    min-height: 390px;
+    background: white;
+    border-radius: 14px;
+    padding: 8px;
 }
 
 .viz-wide {
-    min-height: 450px;
+    min-height: 470px;
+    background: transparent;
 }
 
 .figure-caption {
@@ -179,12 +184,6 @@ h2 {
     margin-top: 16px;
     padding-top: 12px;
     border-top: 1px solid #eadca7;
-}
-
-.caption {
-    font-size: 14px;
-    color: #5f6b75;
-    margin-top: 12px;
 }
 
 .chart-explain {
@@ -216,7 +215,7 @@ h2 {
 }
 
 .placeholder {
-    min-height: 220px;
+    min-height: 260px;
     border: 2px dashed #bdd6cf;
     border-radius: 18px;
     background: #f2faf7;
@@ -236,7 +235,7 @@ h2 {
     text-align: center;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     h1 {
         font-size: 38px;
     }
