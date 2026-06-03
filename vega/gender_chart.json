@@ -1,0 +1,68 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 1050,
+  "height": 360,
+  "title": {
+    "text": "Who Was Travelling?",
+    "subtitle": "Male and female arrivals across Malaysia’s tourism recovery",
+    "fontSize": 18,
+    "subtitleFontSize": 12,
+    "color": "#123c3c",
+    "subtitleColor": "#5f6b75"
+  },
+  "data": {
+    "url": "data/arrivals_soe.csv"
+  },
+  "transform": [
+    {"timeUnit": "yearmonth", "field": "date", "as": "month"},
+    {
+      "fold": ["arrivals_male", "arrivals_female"],
+      "as": ["gender", "arrivals"]
+    },
+    {
+      "calculate": "datum.gender == 'arrivals_male' ? 'Male arrivals' : 'Female arrivals'",
+      "as": "gender_label"
+    },
+    {
+      "aggregate": [
+        {"op": "sum", "field": "arrivals", "as": "monthly_arrivals"}
+      ],
+      "groupby": ["month", "gender_label"]
+    }
+  ],
+  "mark": {
+    "type": "area",
+    "opacity": 0.82,
+    "tooltip": true
+  },
+  "encoding": {
+    "x": {
+      "field": "month",
+      "type": "temporal",
+      "title": "Month"
+    },
+    "y": {
+      "field": "monthly_arrivals",
+      "type": "quantitative",
+      "title": "Monthly arrivals",
+      "stack": null,
+      "axis": {"format": "s"}
+    },
+    "color": {
+      "field": "gender_label",
+      "type": "nominal",
+      "title": "Visitor group",
+      "scale": {
+        "range": ["#2f8f83", "#e07a5f"]
+      }
+    },
+    "tooltip": [
+      {"field": "gender_label", "type": "nominal", "title": "Group"},
+      {"field": "month", "type": "temporal", "title": "Month"},
+      {"field": "monthly_arrivals", "type": "quantitative", "title": "Arrivals", "format": ","}
+    ]
+  },
+  "config": {
+    "view": {"stroke": null}
+  }
+}
