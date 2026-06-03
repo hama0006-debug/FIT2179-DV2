@@ -1,0 +1,71 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500,
+  "height": 340,
+  "title": {
+    "text": "State Recovery Race",
+    "subtitle": "Annual arrivals for the strongest state entry markets",
+    "fontSize": 18,
+    "subtitleFontSize": 12,
+    "color": "#123c3c",
+    "subtitleColor": "#5f6b75"
+  },
+  "data": {
+    "url": "data/arrivals_soe.csv"
+  },
+  "transform": [
+    {"timeUnit": "year", "field": "date", "as": "year"},
+    {
+      "aggregate": [
+        {"op": "sum", "field": "arrivals", "as": "annual_arrivals"}
+      ],
+      "groupby": ["year", "soe"]
+    },
+    {
+      "joinaggregate": [
+        {"op": "sum", "field": "annual_arrivals", "as": "state_total"}
+      ],
+      "groupby": ["soe"]
+    },
+    {
+      "window": [{"op": "dense_rank", "as": "state_rank"}],
+      "sort": [{"field": "state_total", "order": "descending"}]
+    },
+    {"filter": "datum.state_rank <= 6"}
+  ],
+  "mark": {
+    "type": "line",
+    "point": true,
+    "strokeWidth": 3,
+    "tooltip": true
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": "Year"
+    },
+    "y": {
+      "field": "annual_arrivals",
+      "type": "quantitative",
+      "title": "Annual arrivals",
+      "axis": {"format": "s"}
+    },
+    "color": {
+      "field": "soe",
+      "type": "nominal",
+      "title": "State",
+      "scale": {
+        "range": ["#123c3c", "#2f8f83", "#f6c85f", "#e07a5f", "#3d5a80", "#bc6c25"]
+      }
+    },
+    "tooltip": [
+      {"field": "soe", "type": "nominal", "title": "State"},
+      {"field": "year", "type": "ordinal", "title": "Year"},
+      {"field": "annual_arrivals", "type": "quantitative", "title": "Arrivals", "format": ","}
+    ]
+  },
+  "config": {
+    "view": {"stroke": null}
+  }
+}
