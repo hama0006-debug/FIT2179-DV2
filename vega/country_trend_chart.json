@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 520,
-  "height": 360,
+  "width": 570,
+  "height": 390,
   "title": "Recovery Patterns of Major Visitor Markets",
   "data": {
     "url": "data/arrivals_soe.csv"
