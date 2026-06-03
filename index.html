@@ -240,34 +240,63 @@
         <div class="section" id="states">
             <div class="section-header">
                 <div class="section-label">Section 04</div>
-                <h2>Which States Benefited Most?</h2>
+                <h2>Where the Recovery Landed</h2>
 
                 <p class="section-intro">
-                    The comeback was not spread evenly across Malaysia. Some states gained far more arrivals because of airports,
-                    borders, seaports, island destinations, and tourism infrastructure.
+                    The tourism comeback did not benefit every part of Malaysia in the same way. Some states received much higher
+                    arrival volumes because they contain major airports, land borders, ferry terminals, and internationally connected
+                    entry points. This final section shows where the recovery was concentrated and whether visitor composition changed
+                    across the recovery period.
                 </p>
+            </div>
+
+            <div class="insight-box">
+                <strong>Final insight:</strong> Malaysia’s recovery was shaped by geography. The states with the strongest arrival
+                numbers are closely linked to major transport gateways, while the gender comparison shows that the recovery pattern
+                remained broadly similar across male and female visitors.
             </div>
 
             <div class="grid-two">
                 <div class="card">
-                    <h3>State ranking</h3>
-                    <div class="visual-note">A horizontal bar chart will compare total arrivals by Malaysian state.</div>
-                    <div class="placeholder">Coming next: state arrival ranking.</div>
+                    <h3>State arrival ranking</h3>
+                    <div class="visual-note">
+                        This ranking highlights which Malaysian states benefited most from international arrivals. Larger bars show
+                        where the recovery was most concentrated across the full dataset.
+                    </div>
+                    <div id="state_chart" class="chart"></div>
+                    <p id="state_status" class="figure-caption">Figure 9 loading...</p>
+                    <p class="chart-explain">
+                        A ranked horizontal bar chart is used to compare states clearly and identify the strongest arrival locations.
+                    </p>
                 </div>
 
                 <div class="card">
-                    <h3>State recovery heatmap</h3>
-                    <div class="visual-note">A heatmap will show how the recovery changed by state and year.</div>
-                    <div class="placeholder">Coming next: state-by-year recovery heatmap.</div>
+                    <h3>State recovery race</h3>
+                    <div class="visual-note">
+                        Instead of a heatmap, this line chart follows the strongest states over time. It shows whether the leading
+                        states recovered together or followed different rebound paths.
+                    </div>
+                    <div id="state_recovery_chart" class="chart"></div>
+                    <p id="state_recovery_status" class="figure-caption">Figure 10 loading...</p>
+                    <p class="chart-explain">
+                        A multi-line chart is used to compare state recovery paths across years without compressing the trend into a heatmap.
+                    </p>
                 </div>
             </div>
 
-            <div class="card">
-                <h3>Who is travelling?</h3>
-                <div class="visual-note">
-                    The final comparison will use male and female arrival counts to show how visitor composition changed during the recovery period.
+            <div class="grid-one">
+                <div class="card">
+                    <h3>Who was travelling?</h3>
+                    <div class="visual-note">
+                        This final visual compares male and female arrivals across the recovery period. It adds a people-focused layer
+                        to the story after looking at origins, gateways, and states.
+                    </div>
+                    <div id="gender_chart" class="chart viz-wide"></div>
+                    <p id="gender_status" class="figure-caption">Figure 11 loading...</p>
+                    <p class="chart-explain">
+                        An area chart is used to show how male and female visitor volumes changed over time during the recovery.
+                    </p>
                 </div>
-                <div class="placeholder">Coming next: gender comparison chart.</div>
             </div>
         </div>
 
@@ -330,6 +359,24 @@
             .then(function() {
                 document.getElementById("top_entry_status").innerText =
                     "Figure 8. Top 10 busiest international tourism entry points.";
+            });
+
+        vegaEmbed("#state_chart", "./vega/state_chart.json", embedOptions)
+            .then(function() {
+                document.getElementById("state_status").innerText =
+                    "Figure 9. Top Malaysian states by total international arrivals.";
+            });
+
+        vegaEmbed("#state_recovery_chart", "./vega/state_recovery_chart.json", embedOptions)
+            .then(function() {
+                document.getElementById("state_recovery_status").innerText =
+                    "Figure 10. Annual recovery patterns for leading Malaysian states.";
+            });
+
+        vegaEmbed("#gender_chart", "./vega/gender_chart.json", embedOptions)
+            .then(function() {
+                document.getElementById("gender_status").innerText =
+                    "Figure 11. Male and female international arrivals across the recovery period.";
             });
     </script>
 </body>
