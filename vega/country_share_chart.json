@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 850,
-  "height": 380,
+  "width": 390,
+  "height": 320,
   "title": "Share of Arrivals Among Top Source Countries",
   "data": {"url": "data/arrivals_soe.csv"},
   "transform": [
@@ -15,7 +15,7 @@
     },
     {"filter": "datum.rank <= 10"}
   ],
-  "mark": {"type": "arc", "innerRadius": 80, "outerRadius": 165, "tooltip": true},
+  "mark": {"type": "arc", "innerRadius": 65, "outerRadius": 130, "tooltip": true},
   "encoding": {
     "theta": {"field": "total_arrivals", "type": "quantitative"},
     "color": {
