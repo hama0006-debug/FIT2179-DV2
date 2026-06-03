@@ -1,0 +1,84 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 850,
+  "height": 480,
+  "title": "Malaysia's International Tourism Gateways",
+  "projection": {
+    "type": "mercator",
+    "center": [109, 4],
+    "scale": 1700
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+      "transform": [
+        {"filter": "datum.id == 458"}
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e6f1ed",
+        "stroke": "#7fa89d",
+        "strokeWidth": 1
+      }
+    },
+    {
+      "data": {
+        "url": "data/foreign_arrivals.csv"
+      },
+      "transform": [
+        {
+          "aggregate": [
+            {"op": "sum", "field": "arrivals", "as": "total_arrivals"}
+          ],
+          "groupby": ["poe"]
+        },
+        {
+          "lookup": "poe",
+          "from": {
+            "data": {"url": "data/poe.csv"},
+            "key": "poe",
+            "fields": ["lat", "long", "type", "state"]
+          }
+        },
+        {"filter": "isValid(datum.lat) && isValid(datum.long)"}
+      ],
+      "mark": {
+        "type": "circle",
+        "opacity": 0.8,
+        "stroke": "white",
+        "strokeWidth": 1,
+        "tooltip": true
+      },
+      "encoding": {
+        "longitude": {"field": "long", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "size": {
+          "field": "total_arrivals",
+          "type": "quantitative",
+          "title": "Total arrivals",
+          "scale": {"range": [50, 1600]}
+        },
+        "color": {
+          "field": "type",
+          "type": "nominal",
+          "title": "Entry type",
+          "scale": {
+            "range": ["#2f8f83", "#f6c85f", "#e07a5f"]
+          }
+        },
+        "tooltip": [
+          {"field": "poe", "type": "nominal", "title": "Point of entry"},
+          {"field": "state", "type": "nominal", "title": "State"},
+          {"field": "type", "type": "nominal", "title": "Type"},
+          {"field": "total_arrivals", "type": "quantitative", "title": "Total arrivals", "format": ","}
+        ]
+      }
+    }
+  ]
+}
