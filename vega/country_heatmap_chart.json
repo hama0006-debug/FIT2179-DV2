@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 460,
+  "width": 520,
   "height": 320,
   "title": "Visitor Strength by Country and Year",
   "data": {
