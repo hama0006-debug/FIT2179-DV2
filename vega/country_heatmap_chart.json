@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 430,
+  "width": 460,
   "height": 320,
   "title": "Visitor Strength by Country and Year",
   "data": {
@@ -11,8 +11,7 @@
       "filter": "indexof(['SGP','IDN','THA','CHN','BRN','IND','PHL','BGD','KOR','AUS'], datum.country) >= 0"
     },
     {
-      "timeUnit": "year",
-      "field": "date",
+      "calculate": "substring(datum.date, 0, 4)",
       "as": "year"
     },
     {
@@ -24,8 +23,7 @@
   ],
   "mark": {
     "type": "rect",
-    "tooltip": true,
-    "cornerRadius": 3
+    "tooltip": true
   },
   "encoding": {
     "x": {
