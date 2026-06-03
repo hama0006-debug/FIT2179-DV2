@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 850,
-  "height": 380,
+  "width": 390,
+  "height": 320,
   "title": "Recovery Patterns of Major Visitor Markets",
   "data": {"url": "data/arrivals_soe.csv"},
   "transform": [
@@ -11,7 +11,7 @@
       "groupby": ["date", "country"]
     }
   ],
-  "mark": {"type": "line", "strokeWidth": 3, "tooltip": true},
+  "mark": {"type": "line", "strokeWidth": 2.5, "tooltip": true},
   "encoding": {
     "x": {"field": "date", "type": "temporal", "title": "Month"},
     "y": {"field": "monthly_arrivals", "type": "quantitative", "title": "Monthly arrivals"},
