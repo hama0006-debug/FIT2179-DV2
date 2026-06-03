@@ -1,16 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 570,
-  "height": 390,
+  "width": 850,
+  "height": 380,
   "title": "Top 15 Visitor Source Countries",
-  "data": {
-    "url": "data/arrivals_soe.csv"
-  },
+  "data": {"url": "data/arrivals_soe.csv"},
   "transform": [
     {
-      "aggregate": [
-        {"op": "sum", "field": "arrivals", "as": "total_arrivals"}
-      ],
+      "aggregate": [{"op": "sum", "field": "arrivals", "as": "total_arrivals"}],
       "groupby": ["country"]
     },
     {
@@ -21,43 +17,18 @@
   ],
   "mark": {
     "type": "bar",
-    "cornerRadiusEnd": 4,
+    "cornerRadiusEnd": 5,
     "tooltip": true
   },
   "encoding": {
-    "y": {
-      "field": "country",
-      "type": "nominal",
-      "sort": "-x",
-      "title": null
-    },
-    "x": {
-      "field": "total_arrivals",
-      "type": "quantitative",
-      "title": "Total arrivals"
-    },
+    "y": {"field": "country", "type": "nominal", "sort": "-x", "title": null},
+    "x": {"field": "total_arrivals", "type": "quantitative", "title": "Total arrivals"},
     "color": {
       "field": "country",
       "type": "nominal",
       "legend": null,
       "scale": {
-        "range": [
-          "#1f6f5f",
-          "#2f8f83",
-          "#f6c85f",
-          "#e07a5f",
-          "#3d5a80",
-          "#81b29a",
-          "#bc6c25",
-          "#6d597a",
-          "#457b9d",
-          "#a7c957",
-          "#8d99ae",
-          "#b56576",
-          "#2a9d8f",
-          "#e9c46a",
-          "#264653"
-        ]
+        "range": ["#123c3c", "#2f8f83", "#f6c85f", "#e07a5f", "#3d5a80", "#81b29a", "#bc6c25", "#6d597a", "#457b9d", "#a7c957", "#8d99ae", "#b56576", "#2a9d8f", "#e9c46a", "#264653"]
       }
     },
     "tooltip": [
