@@ -15,17 +15,17 @@ body {
 }
 
 .page {
-    max-width: 1420px;
+    max-width: 1500px;
     margin: auto;
-    padding: 32px 26px;
+    padding: 34px 28px;
 }
 
 .hero {
-    background: radial-gradient(circle at top right, #3da58f, #123c3c 62%);
+    background: radial-gradient(circle at top right, #42a891, #123c3c 62%);
     color: white;
-    padding: 68px 62px;
+    padding: 72px 70px;
     border-radius: 30px;
-    margin-bottom: 24px;
+    margin-bottom: 26px;
     box-shadow: 0 18px 40px rgba(0,0,0,0.16);
 }
 
@@ -43,15 +43,15 @@ body {
 }
 
 h1 {
-    font-size: 50px;
-    line-height: 1.06;
-    max-width: 1050px;
+    font-size: 58px;
+    line-height: 1.05;
+    max-width: 1280px;
     margin: 22px 0 18px;
 }
 
 .hero-text {
-    max-width: 940px;
-    font-size: 18px;
+    max-width: 1180px;
+    font-size: 19px;
     color: #edf7f4;
 }
 
@@ -64,8 +64,8 @@ h1 {
 .nav {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 14px;
-    margin: 22px 0 34px;
+    gap: 16px;
+    margin: 22px 0 36px;
 }
 
 .nav a {
@@ -81,9 +81,9 @@ h1 {
 
 .section {
     background: white;
-    padding: 46px;
-    border-radius: 28px;
-    margin-bottom: 36px;
+    padding: 50px;
+    border-radius: 30px;
+    margin-bottom: 38px;
     box-shadow: 0 12px 30px rgba(0,0,0,0.06);
 }
 
@@ -96,23 +96,23 @@ h1 {
 }
 
 h2 {
-    font-size: 38px;
-    margin: 8px 0 12px;
+    font-size: 42px;
+    margin: 8px 0 14px;
     line-height: 1.15;
 }
 
 .section-intro {
-    max-width: 1050px;
+    max-width: 1180px;
     color: #46515c;
-    font-size: 17px;
+    font-size: 18px;
 }
 
 .insight-box {
     background: #eef7f4;
     border-left: 6px solid #1f6f5f;
-    padding: 18px 20px;
+    padding: 18px 22px;
     border-radius: 14px;
-    margin: 24px 0;
+    margin: 26px 0;
     color: #173f3c;
 }
 
@@ -136,7 +136,7 @@ h2 {
     border: 1px solid #e1ebe7;
     padding: 30px;
     border-radius: 24px;
-    min-height: 680px;
+    min-height: 735px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -146,19 +146,19 @@ h2 {
 .card h3 {
     margin: 0 0 16px;
     color: #123c3c;
-    font-size: 23px;
+    font-size: 24px;
     line-height: 1.2;
 }
 
 .visual-note {
     background: white;
     border-left: 5px solid #f6c85f;
-    padding: 15px 17px;
+    padding: 16px 18px;
     border-radius: 12px;
-    margin: 0 0 20px;
+    margin: 0 0 22px;
     color: #34434d;
     font-size: 15px;
-    min-height: 112px;
+    min-height: 118px;
 }
 
 .chart {
@@ -167,29 +167,31 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 390px;
+    min-height: 410px;
     background: white;
-    border-radius: 14px;
-    padding: 8px;
+    border-radius: 16px;
+    padding: 14px;
 }
 
 .viz-wide {
-    min-height: 470px;
-    background: transparent;
+    min-height: 540px;
+    background: white;
 }
 
 .figure-caption {
+    background: #fff9e8;
+    border: 1px solid #f3df9f;
     color: #5b4a15;
+    padding: 12px 14px;
+    border-radius: 12px;
     font-size: 14px;
-    margin-top: 16px;
-    padding-top: 12px;
-    border-top: 1px solid #eadca7;
+    margin-top: 18px;
 }
 
 .chart-explain {
     font-size: 14px;
     color: #5f6b75;
-    margin-top: 8px;
+    margin-top: 10px;
 }
 
 .mini-card {
@@ -210,7 +212,7 @@ h2 {
 
 .mini-card strong {
     display: block;
-    font-size: 26px;
+    font-size: 28px;
     margin-top: 6px;
 }
 
