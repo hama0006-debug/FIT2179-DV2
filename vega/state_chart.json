@@ -1,0 +1,91 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500,
+  "height": 340,
+  "title": {
+    "text": "Top States by International Arrivals",
+    "subtitle": "Total arrivals recorded by state of entry",
+    "fontSize": 18,
+    "subtitleFontSize": 12,
+    "color": "#123c3c",
+    "subtitleColor": "#5f6b75"
+  },
+  "data": {
+    "url": "data/arrivals_soe.csv"
+  },
+  "transform": [
+    {
+      "aggregate": [
+        {"op": "sum", "field": "arrivals", "as": "total_arrivals"}
+      ],
+      "groupby": ["soe"]
+    },
+    {
+      "window": [{"op": "rank", "as": "rank"}],
+      "sort": [{"field": "total_arrivals", "order": "descending"}]
+    },
+    {"filter": "datum.rank <= 10"},
+    {"calculate": "datum.total_arrivals / 1000000", "as": "arrivals_million"},
+    {"calculate": "format(datum.arrivals_million, '.1f') + 'M'", "as": "arrival_label"}
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadiusEnd": 8,
+        "tooltip": true
+      },
+      "encoding": {
+        "y": {
+          "field": "soe",
+          "type": "nominal",
+          "sort": "-x",
+          "title": null
+        },
+        "x": {
+          "field": "total_arrivals",
+          "type": "quantitative",
+          "title": "Total arrivals",
+          "axis": {"format": "s"}
+        },
+        "color": {
+          "field": "rank",
+          "type": "quantitative",
+          "scale": {
+            "range": ["#f6c85f", "#2f8f83", "#123c3c", "#83b6a8"]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {"field": "rank", "type": "quantitative", "title": "Rank"},
+          {"field": "soe", "type": "nominal", "title": "State"},
+          {"field": "total_arrivals", "type": "quantitative", "title": "Total arrivals", "format": ","}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 6,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#123c3c"
+      },
+      "encoding": {
+        "y": {"field": "soe", "type": "nominal", "sort": "-x"},
+        "x": {"field": "total_arrivals", "type": "quantitative"},
+        "text": {"field": "arrival_label", "type": "nominal"}
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
+    "axis": {
+      "labelColor": "#24323d",
+      "titleColor": "#123c3c",
+      "gridColor": "#e2e8e4"
+    }
+  }
+}
