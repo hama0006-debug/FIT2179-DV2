@@ -83,6 +83,36 @@ h1 {
     margin-bottom: 58px;
 }
 
+.section-divider {
+    position: relative;
+    margin: 110px 0;
+    height: 40px;
+}
+
+.section-divider::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #c9c3b8;
+}
+
+.section-divider::after {
+    content: "✦";
+    position: absolute;
+    left: 50%;
+    top: 7px;
+    transform: translateX(-50%);
+    background: #f4efe6;
+    color: #2f6f63;
+    padding: 0 20px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
 .section-header {
     margin-bottom: 24px;
 }
