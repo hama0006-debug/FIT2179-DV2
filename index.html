@@ -36,15 +36,17 @@
         </div>
 
         <div class="section" id="recovery">
-            <div class="section-label">Section 01</div>
-            <h2>The Recovery Curve</h2>
+            <div class="section-header">
+                <div class="section-label">Section 01</div>
+                <h2>The Recovery Curve</h2>
 
-            <p class="section-intro">
-                Malaysia’s tourism recovery begins with a dramatic fall and a delayed comeback.
-                Monthly international arrivals dropped from millions of visitors at the start of 2020
-                to only a small fraction during the restricted travel period. After reopening, the recovery
-                accelerated and reached its strongest point in 2024.
-            </p>
+                <p class="section-intro">
+                    Malaysia’s tourism recovery begins with a dramatic fall and a delayed comeback.
+                    Monthly international arrivals dropped from millions of visitors at the start of 2020
+                    to only a small fraction during the restricted travel period. After reopening, the recovery
+                    accelerated and reached its strongest point in 2024.
+                </p>
+            </div>
 
             <div class="grid-three">
                 <div class="mini-card">
@@ -66,30 +68,34 @@
                 </div>
             </div>
 
-            <div class="insight-box">
-                <strong>Key takeaway:</strong> Malaysia’s tourism remained almost flat through much of the restricted
-                period, then rebuilt quickly after 2022 as international movement resumed.
+            <div class="card">
+                <div class="insight-box">
+                    <strong>Key takeaway:</strong> Malaysia’s tourism remained almost flat through much of the restricted
+                    period, then rebuilt quickly after 2022 as international movement resumed.
+                </div>
+
+                <div id="recovery_chart" class="chart viz-wide"></div>
+
+                <p id="chart_status" class="figure-caption">Figure 1 loading...</p>
+
+                <p class="chart-explain">
+                    A line chart is used because the main task is to show change over time. It reveals the collapse,
+                    the low-travel period, and the later recovery in one continuous view.
+                </p>
             </div>
-
-            <div id="recovery_chart" class="chart viz-wide"></div>
-
-            <p id="chart_status" class="figure-caption">Figure 1 loading...</p>
-
-            <p class="chart-explain">
-                A line chart is used because the main task is to show change over time. It reveals the collapse,
-                the low-travel period, and the later recovery in one continuous view.
-            </p>
         </div>
 
         <div class="section" id="countries">
-            <div class="section-label">Section 02</div>
-            <h2>Where Visitors Came From</h2>
+            <div class="section-header">
+                <div class="section-label">Section 02</div>
+                <h2>Where Visitors Came From</h2>
 
-            <p class="section-intro">
-                The recovery was not powered equally by every country. Malaysia’s visitor flow is strongly regional:
-                nearby markets returned faster and contributed the largest volumes. This section compares the biggest
-                origin countries, their recovery paths, and how much each source market shaped the overall rebound.
-            </p>
+                <p class="section-intro">
+                    The recovery was not powered equally by every country. Malaysia’s visitor flow is strongly regional:
+                    nearby markets returned faster and contributed the largest volumes. This section compares the biggest
+                    origin countries, their recovery paths, and how much each source market shaped the overall rebound.
+                </p>
+            </div>
 
             <div class="insight-box">
                 <strong>Section insight:</strong> Singapore sits far ahead of every other source country. Indonesia,
@@ -102,8 +108,7 @@
                     <h3>Top visitor countries</h3>
                     <div class="visual-note">
                         Singapore is the dominant arrival source. The large gap between Singapore and the next group
-                        of countries shows that Malaysia’s recovery was strongly driven by nearby regional travel
-                        instead of being evenly spread across all origins.
+                        of countries shows that Malaysia’s recovery was strongly driven by nearby regional travel.
                     </div>
                     <div id="countries_chart" class="chart"></div>
                     <p id="countries_status" class="figure-caption">Figure 2 loading...</p>
@@ -111,7 +116,9 @@
                         Ranked horizontal bars support direct country comparison and make the largest contributors easy to identify.
                     </p>
                 </div>
+            </div>
 
+            <div class="grid-two">
                 <div class="card">
                     <h3>Country recovery patterns</h3>
                     <div class="visual-note">
@@ -126,48 +133,52 @@
                 </div>
 
                 <div class="card">
-                    <h3>Country-by-year heatmap</h3>
-                    <div class="visual-note">
-                        The heatmap turns yearly recovery into a quick visual scan. Darker cells show where visitor volume
-                        became stronger, especially as travel resumed after 2022.
-                    </div>
-                    <div id="country_heatmap_chart" class="chart"></div>
-                    <p id="country_heatmap_status" class="figure-caption">Figure 4 loading...</p>
-                    <p class="chart-explain">
-                        A heatmap compresses country and year into a compact comparison using colour intensity, making broad patterns easier to see.
-                    </p>
-                </div>
-
-                <div class="card">
                     <h3>Source market share</h3>
                     <div class="visual-note">
                         The donut chart shows concentration. The large Singapore slice confirms that Malaysia’s recovery
                         depends heavily on a few major source countries.
                     </div>
                     <div id="country_share_chart" class="chart"></div>
-                    <p id="country_share_status" class="figure-caption">Figure 5 loading...</p>
+                    <p id="country_share_status" class="figure-caption">Figure 4 loading...</p>
                     <p class="chart-explain">
                         A donut chart is used as a compact part-to-whole view for the largest visitor source markets.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid-one">
+                <div class="card">
+                    <h3>Country-by-year heatmap</h3>
+                    <div class="visual-note">
+                        The heatmap turns yearly recovery into a quick visual scan. Darker cells show where visitor volume
+                        became stronger, especially as travel resumed after 2022.
+                    </div>
+                    <div id="country_heatmap_chart" class="chart"></div>
+                    <p id="country_heatmap_status" class="figure-caption">Figure 5 loading...</p>
+                    <p class="chart-explain">
+                        A heatmap compresses country and year into a compact comparison using colour intensity.
                     </p>
                 </div>
             </div>
         </div>
 
         <div class="section" id="gateways">
-            <div class="section-label">Section 03</div>
-            <h2>Malaysia’s Tourism Gateways</h2>
+            <div class="section-header">
+                <div class="section-label">Section 03</div>
+                <h2>Malaysia’s Tourism Gateways</h2>
 
-            <p class="section-intro">
-                Arrivals do not enter Malaysia evenly. Some tourists arrive through major airports, while others enter
-                through land checkpoints and seaports. Mapping these entry points turns the recovery story into a spatial pattern.
-            </p>
-
-            <div class="insight-box">
-                <strong>Map focus:</strong> this section uses latitude and longitude from the point-of-entry dataset
-                to create the required geographic map.
+                <p class="section-intro">
+                    Arrivals do not enter Malaysia evenly. Some tourists arrive through major airports, while others enter
+                    through land checkpoints and seaports. Mapping these entry points turns the recovery story into a spatial pattern.
+                </p>
             </div>
 
             <div class="card">
+                <div class="insight-box">
+                    <strong>Map focus:</strong> this section uses latitude and longitude from the point-of-entry dataset
+                    to create the required geographic map.
+                </div>
+
                 <h3>Point-of-entry map</h3>
                 <div class="visual-note">
                     The map will show Malaysia’s air, land, and sea gateways using point locations.
@@ -192,13 +203,15 @@
         </div>
 
         <div class="section" id="states">
-            <div class="section-label">Section 04</div>
-            <h2>Which States Benefited Most?</h2>
+            <div class="section-header">
+                <div class="section-label">Section 04</div>
+                <h2>Which States Benefited Most?</h2>
 
-            <p class="section-intro">
-                The comeback was not spread evenly across Malaysia. Some states gained far more arrivals because of airports,
-                borders, seaports, island destinations, and tourism infrastructure.
-            </p>
+                <p class="section-intro">
+                    The comeback was not spread evenly across Malaysia. Some states gained far more arrivals because of airports,
+                    borders, seaports, island destinations, and tourism infrastructure.
+                </p>
+            </div>
 
             <div class="grid-two">
                 <div class="card">
@@ -231,34 +244,39 @@
     </div>
 
     <script>
-        vegaEmbed("#recovery_chart", "./vega/recovery_chart.json", {"actions": false})
+        const embedOptions = {
+            actions: false,
+            renderer: "svg"
+        };
+
+        vegaEmbed("#recovery_chart", "./vega/recovery_chart.json", embedOptions)
             .then(function() {
                 document.getElementById("chart_status").innerText =
                     "Figure 1. Monthly international visitor arrivals to Malaysia, 2020–2024.";
             });
 
-        vegaEmbed("#countries_chart", "./vega/countries_chart.json", {"actions": false})
+        vegaEmbed("#countries_chart", "./vega/countries_chart.json", embedOptions)
             .then(function() {
                 document.getElementById("countries_status").innerText =
                     "Figure 2. Top 15 visitor source countries by total arrivals.";
             });
 
-        vegaEmbed("#country_trend_chart", "./vega/country_trend_chart.json", {"actions": false})
+        vegaEmbed("#country_trend_chart", "./vega/country_trend_chart.json", embedOptions)
             .then(function() {
                 document.getElementById("country_trend_status").innerText =
                     "Figure 3. Monthly recovery patterns for six major visitor markets.";
             });
 
-        vegaEmbed("#country_heatmap_chart", "./vega/country_heatmap_chart.json", {"actions": false})
-            .then(function() {
-                document.getElementById("country_heatmap_status").innerText =
-                    "Figure 4. Country-by-year arrivals heatmap for major visitor markets.";
-            });
-
-        vegaEmbed("#country_share_chart", "./vega/country_share_chart.json", {"actions": false})
+        vegaEmbed("#country_share_chart", "./vega/country_share_chart.json", embedOptions)
             .then(function() {
                 document.getElementById("country_share_status").innerText =
-                    "Figure 5. Share of arrivals among the top ten visitor source countries.";
+                    "Figure 4. Share of arrivals among the top ten visitor source countries.";
+            });
+
+        vegaEmbed("#country_heatmap_chart", "./vega/country_heatmap_chart.json", embedOptions)
+            .then(function() {
+                document.getElementById("country_heatmap_status").innerText =
+                    "Figure 5. Country-by-year arrivals heatmap for major visitor markets.";
             });
     </script>
 </body>
