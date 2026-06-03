@@ -1,0 +1,43 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 390,
+  "height": 320,
+  "title": "Top 10 Busiest Entry Points",
+  "data": {"url": "data/foreign_arrivals.csv"},
+  "transform": [
+    {
+      "aggregate": [
+        {"op": "sum", "field": "arrivals", "as": "total_arrivals"}
+      ],
+      "groupby": ["poe"]
+    },
+    {
+      "window": [{"op": "rank", "as": "rank"}],
+      "sort": [{"field": "total_arrivals", "order": "descending"}]
+    },
+    {"filter": "datum.rank <= 10"}
+  ],
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 5,
+    "tooltip": true,
+    "color": "#123c3c"
+  },
+  "encoding": {
+    "y": {
+      "field": "poe",
+      "type": "nominal",
+      "sort": "-x",
+      "title": null
+    },
+    "x": {
+      "field": "total_arrivals",
+      "type": "quantitative",
+      "title": "Total arrivals"
+    },
+    "tooltip": [
+      {"field": "poe", "type": "nominal", "title": "Point of entry"},
+      {"field": "total_arrivals", "type": "quantitative", "title": "Total arrivals", "format": ","}
+    ]
+  }
+}
