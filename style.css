@@ -15,7 +15,7 @@ body {
 }
 
 .page {
-    max-width: 1500px;
+    max-width: 1280px;
     margin: auto;
     padding: 34px 28px;
 }
@@ -43,14 +43,14 @@ body {
 }
 
 h1 {
-    font-size: 58px;
-    line-height: 1.05;
-    max-width: 1280px;
+    font-size: 54px;
+    line-height: 1.08;
+    max-width: 1120px;
     margin: 22px 0 18px;
 }
 
 .hero-text {
-    max-width: 1180px;
+    max-width: 1060px;
     font-size: 19px;
     color: #edf7f4;
 }
@@ -102,7 +102,7 @@ h2 {
 }
 
 .section-intro {
-    max-width: 1180px;
+    max-width: 1060px;
     color: #46515c;
     font-size: 18px;
 }
@@ -119,9 +119,15 @@ h2 {
 .grid-two {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 34px;
-    margin-top: 32px;
-    align-items: stretch;
+    gap: 28px;
+    margin-top: 30px;
+}
+
+.grid-one {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 30px;
 }
 
 .grid-three {
@@ -136,10 +142,6 @@ h2 {
     border: 1px solid #e1ebe7;
     padding: 30px;
     border-radius: 24px;
-    min-height: 735px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     box-shadow: 0 8px 22px rgba(0,0,0,0.035);
 }
 
@@ -158,7 +160,6 @@ h2 {
     margin: 0 0 22px;
     color: #34434d;
     font-size: 15px;
-    min-height: 118px;
 }
 
 .chart {
@@ -167,15 +168,14 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 410px;
+    min-height: 430px;
     background: white;
     border-radius: 16px;
-    padding: 14px;
+    padding: 16px;
 }
 
 .viz-wide {
-    min-height: 540px;
-    background: white;
+    min-height: 520px;
 }
 
 .figure-caption {
@@ -250,9 +250,5 @@ h2 {
     .grid-two,
     .grid-three {
         grid-template-columns: 1fr;
-    }
-
-    .card {
-        min-height: auto;
     }
 }
