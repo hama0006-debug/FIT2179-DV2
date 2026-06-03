@@ -1,9 +1,18 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 390,
-  "height": 320,
-  "title": "Top 10 Busiest Entry Points",
-  "data": {"url": "data/foreign_arrivals.csv"},
+  "width": 500,
+  "height": 360,
+  "title": {
+    "text": "Top 10 Busiest Entry Points",
+    "subtitle": "Ranked by total international arrivals",
+    "fontSize": 18,
+    "subtitleFontSize": 12,
+    "color": "#123c3c",
+    "subtitleColor": "#5f6b75"
+  },
+  "data": {
+    "url": "data/foreign_arrivals.csv"
+  },
   "transform": [
     {
       "aggregate": [
@@ -15,29 +24,97 @@
       "window": [{"op": "rank", "as": "rank"}],
       "sort": [{"field": "total_arrivals", "order": "descending"}]
     },
-    {"filter": "datum.rank <= 10"}
+    {"filter": "datum.rank <= 10"},
+    {
+      "calculate": "datum.total_arrivals / 1000000",
+      "as": "arrivals_million"
+    },
+    {
+      "calculate": "format(datum.arrivals_million, '.1f') + 'M'",
+      "as": "arrival_label"
+    }
   ],
-  "mark": {
-    "type": "bar",
-    "cornerRadiusEnd": 5,
-    "tooltip": true,
-    "color": "#123c3c"
-  },
-  "encoding": {
-    "y": {
-      "field": "poe",
-      "type": "nominal",
-      "sort": "-x",
-      "title": null
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadiusEnd": 8,
+        "tooltip": true
+      },
+      "encoding": {
+        "y": {
+          "field": "poe",
+          "type": "nominal",
+          "sort": "-x",
+          "title": null,
+          "axis": {
+            "labelFontSize": 11,
+            "labelLimit": 180
+          }
+        },
+        "x": {
+          "field": "total_arrivals",
+          "type": "quantitative",
+          "title": "Total arrivals",
+          "axis": {
+            "format": "s",
+            "grid": true
+          }
+        },
+        "color": {
+          "condition": {
+            "test": "datum.rank == 1",
+            "value": "#f6c85f"
+          },
+          "field": "rank",
+          "type": "quantitative",
+          "scale": {
+            "range": ["#123c3c", "#2f8f83", "#78b7a5", "#cfe6dc"]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {"field": "rank", "type": "quantitative", "title": "Rank"},
+          {"field": "poe", "type": "nominal", "title": "Entry point"},
+          {"field": "total_arrivals", "type": "quantitative", "title": "Total arrivals", "format": ","}
+        ]
+      }
     },
-    "x": {
-      "field": "total_arrivals",
-      "type": "quantitative",
-      "title": "Total arrivals"
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 6,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#123c3c"
+      },
+      "encoding": {
+        "y": {
+          "field": "poe",
+          "type": "nominal",
+          "sort": "-x"
+        },
+        "x": {
+          "field": "total_arrivals",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "arrival_label",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
     },
-    "tooltip": [
-      {"field": "poe", "type": "nominal", "title": "Point of entry"},
-      {"field": "total_arrivals", "type": "quantitative", "title": "Total arrivals", "format": ","}
-    ]
+    "axis": {
+      "labelColor": "#24323d",
+      "titleColor": "#123c3c",
+      "gridColor": "#e2e8e4"
+    }
   }
 }
